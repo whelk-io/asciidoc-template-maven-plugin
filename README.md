@@ -80,3 +80,58 @@ Other documentation
 |`outputDirectory`|Directory to write compiled asciidoc. Defaults to `./`|
 |`outputFile`|Output of `templateFile`. Defaults to `templateFile`|
 
+
+## Maven Settings
+
+**~/.m2/settings.xml**
+
+````xml
+<settings>
+
+  <activeProfiles>
+    <activeProfile>github</activeProfile>
+  </activeProfiles>
+
+  <profiles>
+    <profile>
+      <id>github</id>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>github-asciidoc-template-maven-plugin</id>
+          <url>https://maven.pkg.github.com/whelk-io/asciidoc-template-maven-plugin</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+
+  <servers>
+    <server>
+      <id>github-asciidoc-template-maven-plugin</id>
+      <username>GITHUB_USERNAME</username>
+      <password>PERSONAL_ACCESS_TOKEN</password>
+    </server>
+  </servers>
+
+</settings>
+````
+
+**pom.xml**
+
+````xml
+<dependencies>
+	<dependency>
+		<groupId>io.whelk.asciidoc</groupId>
+		<artifactId>asciidoc-template-maven-plugin</artifactId>
+		<version>${asciidoc-template-maven-plugin-version}</version>
+	</dependency>
+
+</dependencies>
+
+<pluginRepositories>
+	<pluginRepository>
+		<id>github-asciidoc-template-maven-plugin</id>
+		<url>https://maven.pkg.github.com/whelk-io/asciidoc-template-maven-plugin</url>
+	</pluginRepository>
+</pluginRepositories>
+````
+
