@@ -73,9 +73,10 @@ Other documentation
 
 ### Plugin Configuration
 
-|===
-|`templateDirectory`|Directory to find template asiidocs (.adoc). Defaults to `src/docs`
-|`templateFile`|Root file to compile into asciidoc. Defaults to `README.adoc`
-|`outputDirectory`|Directory to write compiled asciidoc. Defaults to `./`
-|`outputFile`|Output of `templateFile`. Defaults to `templateFile`
-|===
+| Property | Description |
+|----------|-------------|
+|`templateDirectory`|Directory to find template asiidocs (.adoc). Defaults to `src/docs`|
+|`templateFile`|Root file to compile into asciidoc. Defaults to `README.adoc`|
+|`outputDirectory`|Directory to write compiled asciidoc. Defaults to `./`|
+|`outputFile`|Output of `templateFile`. Defaults to `templateFile`|
+
