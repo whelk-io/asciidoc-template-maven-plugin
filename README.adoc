@@ -29,7 +29,7 @@ Other documentation
 
 `mvn asciidoc-template::build`
 
-**then outputFile**
+**then output file contains**
 
 `./README.adoc`
 
