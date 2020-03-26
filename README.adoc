@@ -25,9 +25,9 @@ include::otherFile.adoc
 Other documentation
 ```
 
-**when running ascii-template**
+**when running asciidoc-template**
 
-`mvn asciidoc-tempalte::build`
+`mvn asciidoc-template::build`
 
 **then outputFile**
 
