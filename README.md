@@ -1,14 +1,10 @@
-= asciidoc-template-maven-plugin
+# asciidoc-template-maven-plugin
 
 GitHub support for Asciidoctor on `README.adoc` does not include the `include::` syntax. This plugin reads a templated file and inserts the related markup wherever `inlude::` is found.
 
-[.float-group]
---
-image::https://www.codefactor.io/repository/github/whelk-io/asciidoc-template-maven-plugin/badge[https://www.codefactor.io/repository/github/whelk-io/asciidoc-template-maven-plugin]
-image::https://api.dependabot.com/badges/status?host=github&repo=whelk-io/flesch-kincaid[https://dependabot.com]
---
+[![CodeFactor](https://www.codefactor.io/repository/github/whelk-io/asciidoc-template-maven-plugin/badge/master)](https://www.codefactor.io/repository/github/whelk-io/asciidoc-template-maven-plugin/overview/master) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=whelk-io/asciidoc-template-maven-plugin)](https://dependabot.com)
 
-== Usage
+## Usage
 
 **given template file**
 
@@ -49,9 +45,9 @@ Other documentation
 = Footer
 ```
 
-== Maven Configuration
+## Maven Configuration
 
-=== Basic
+### Basic
 
 ```xml
 <plugin>
@@ -60,7 +56,7 @@ Other documentation
 </plugin>
 ```
 
-=== Full
+### Full
 
 ```xml
 <plugin>
@@ -75,7 +71,7 @@ Other documentation
 </plugin>
 ```
 
-==== Configuration
+### Plugin Configuration
 
 |===
 |`templateDirectory`|Directory to find template asiidocs (.adoc). Defaults to `src/docs`
