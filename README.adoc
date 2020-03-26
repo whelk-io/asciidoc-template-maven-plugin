@@ -1,0 +1,84 @@
+= asciidoc-template-maven-plugin
+
+GitHub support for Asciidoctor on `README.adoc` does not include the `include::` syntax. This plugin reads a templated file and inserts the related markup wherever `inlude::` is found.
+
+== Usage
+
+**given template file**
+
+`src/docs/README.adoc`
+
+```
+= Some File
+
+include::otherFile.adoc
+
+= Footer
+```
+
+**and include file**
+
+`src/docs/otherFile.adoc`
+```
+== Other File
+
+Other documentation
+```
+
+**when running ascii-template**
+
+`mvn asciidoc-tempalte::build`
+
+**then outputFile**
+
+`./README.adoc`
+
+```
+= Some File
+
+== Other File
+
+Other documentation
+
+= Footer
+```
+
+== Maven Configuration
+
+=== Basic
+
+```xml
+<plugin>
+	<groupId>io.whelk.asciidoc</groupId>
+	<artifactId>asciidoc-template-maven-plugin</artifactId>
+</plugin>
+```
+
+=== Full
+
+```xml
+<plugin>
+	<groupId>io.whelk.asciidoc</groupId>
+	<artifactId>asciidoc-template-maven-plugin</artifactId>
+	<configuration>
+		<templateDirectory>src/docs</templateDirectory>
+		<templateFile>README.adoc</templateFile>
+		<outputDirectory>./</outputDirectory>
+		<outputFile>README.adoc</outputFile>
+	</configuration>
+</plugin>
+```
+
+==== Configuration
+
+|===
+|`templateDirectory`|Directory to find template asiidocs (.adoc). Defaults to `src/docs`
+|`templateFile`|Root file to compile into asciidoc. Defaults to `README.adoc`
+|`outputDirectory`|Directory to write compiled asciidoc. Defaults to `./`
+|`outputFile`|Output of `templateFile`. Defaults to `tempalteFile`
+|===
+
+
+
+
+
