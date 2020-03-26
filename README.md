@@ -1,1 +1,0 @@
-# asciidoc-template-maven-plugin
