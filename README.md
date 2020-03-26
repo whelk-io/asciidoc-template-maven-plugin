@@ -118,15 +118,6 @@ Other documentation
 **pom.xml**
 
 ````xml
-<dependencies>
-	<dependency>
-		<groupId>io.whelk.asciidoc</groupId>
-		<artifactId>asciidoc-template-maven-plugin</artifactId>
-		<version>${asciidoc-template-maven-plugin-version}</version>
-	</dependency>
-
-</dependencies>
-
 <pluginRepositories>
 	<pluginRepository>
 		<id>github-asciidoc-template-maven-plugin</id>
