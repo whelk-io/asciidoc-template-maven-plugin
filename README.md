@@ -13,7 +13,7 @@ GitHub support for Asciidoctor on `README.adoc` does not include the `include::`
 ```
 = Some File
 
-include::otherFile.adoc
+include::otherFile.adoc[]
 
 = Footer
 ```

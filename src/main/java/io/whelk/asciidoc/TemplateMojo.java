@@ -68,11 +68,11 @@ public class TemplateMojo extends AbstractMojo {
 
     private boolean matchesIncludeLine(final String line) {
         return line.startsWith("include::") && 
-               line.endsWith(".adoc");
+               line.endsWith(".adoc[]");
     }
 
     private List<String> updateIncludeLine(final String line) {
-        var path = line.substring(9);
+        var path = line.substring(9, line.length() - 2);
         return this.readLines(templateDirectory, path);
     }
 
