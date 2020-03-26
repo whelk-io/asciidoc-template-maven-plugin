@@ -125,4 +125,3 @@ Other documentation
 	</pluginRepository>
 </pluginRepositories>
 ````
-
