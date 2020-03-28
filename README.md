@@ -64,7 +64,7 @@ Other documentation
 	<artifactId>asciidoc-template-maven-plugin</artifactId>
 	<configuration>
 		<templateDirectory>src/docs</templateDirectory>
-		<templateFile>README.adoc</templateFile>
+		<templateFile>README-template.adoc</templateFile>
 		<outputDirectory>./</outputDirectory>
 		<outputFile>README.adoc</outputFile>
 	</configuration>
@@ -76,9 +76,9 @@ Other documentation
 | Property | Description |
 |----------|-------------|
 |`templateDirectory`|Directory to find template asiidocs (.adoc). Defaults to `src/docs`|
-|`templateFile`|Root file to compile into asciidoc. Defaults to `README.adoc`|
+|`templateFile`|Root file to compile into asciidoc. Defaults to `README-template.adoc`|
 |`outputDirectory`|Directory to write compiled asciidoc. Defaults to `./`|
-|`outputFile`|Output of `templateFile`. Defaults to `templateFile`|
+|`outputFile`|Output of building from `templateFile`. Defaults to `templateFile` without `-template`.|
 
 
 ## Maven Settings
