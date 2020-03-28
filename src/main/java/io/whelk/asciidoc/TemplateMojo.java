@@ -25,7 +25,7 @@ public class TemplateMojo extends AbstractMojo {
     String templateFile;
 
     @Parameter(property = "outputDirectory")
-    String outputDirectory = "./";
+    String outputDirectory;
 
     @Parameter(property = "outputFile")
     String outputFile;
@@ -37,10 +37,10 @@ public class TemplateMojo extends AbstractMojo {
     public void execute() throws MojoExecutionException, MojoFailureException {
         setDefaultConfiguration();
 
-        final var lines = this.readLines("src/docs/README.adoc");
+        final var lines = this.readLines(templateDirectory, templateFile);
         final var updatedLines = this.updateLines(lines);
 
-        Files.write(Paths.get("./README.adoc"), updatedLines);
+        Files.write(Paths.get(outputDirectory, outputFile), updatedLines);
     }
 
     @SneakyThrows
@@ -77,17 +77,19 @@ public class TemplateMojo extends AbstractMojo {
     }
 
     private void setDefaultConfiguration() {
+
         if (templateDirectory == null || templateDirectory.isBlank())
             templateDirectory = "src/docs";
 
         if (templateFile == null || templateFile.isBlank())
-            templateFile = "README.adoc";
+            templateFile = "README-template.adoc";
 
         if (outputDirectory == null || outputDirectory.isBlank())
             outputDirectory = "./";
 
         if (outputFile == null || outputFile.isBlank())
-            outputFile = templateFile;
+            outputFile = templateFile.replace("-template", "");
+
     }
 
 }
