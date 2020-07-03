@@ -2,7 +2,7 @@
 
 GitHub support for Asciidoctor on `README.adoc` does not include the `include::` syntax. This plugin reads a templated file and inserts the related markup wherever `inlude::` is found.
 
-[![CodeFactor](https://www.codefactor.io/repository/github/whelk-io/asciidoc-template-maven-plugin/badge/master)](https://www.codefactor.io/repository/github/whelk-io/asciidoc-template-maven-plugin/overview/master) ![deploy](https://github.com/whelk-io/asciidoc-template-maven-plugin/workflows/deploy/badge.svg?branch=master) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=whelk-io/asciidoc-template-maven-plugin)](https://dependabot.com)
+[![CodeFactor](https://www.codefactor.io/repository/github/whelk-io/asciidoc-template-maven-plugin/badge/master)](https://www.codefactor.io/repository/github/whelk-io/asciidoc-template-maven-plugin/overview/master) ![deploy](https://github.com/whelk-io/asciidoc-template-maven-plugin/workflows/deploy/badge.svg?branch=master) 
 
 ## Usage
 
