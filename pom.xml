@@ -5,7 +5,7 @@
 
     <groupId>io.whelk.asciidoc</groupId>
     <artifactId>asciidoc-template-maven-plugin</artifactId>
-    <version>1.0.7-RELEASE</version>
+    <version>1.0.8-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
     <name>Asciidoc Template Plugin</name>
@@ -66,6 +66,17 @@
             <artifactId>lombok</artifactId>
             <version>1.18.12</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.0-RC1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.16.1</version>
         </dependency>
     </dependencies>
 
