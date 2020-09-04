@@ -33,3 +33,4 @@ build/
 ### Maven ###
 settings.xml
 release.properties
+pom.xml.releaseBackup
