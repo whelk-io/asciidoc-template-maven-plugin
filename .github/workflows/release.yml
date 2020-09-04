@@ -21,15 +21,6 @@ jobs:
       - name: Run Unit Tests
         run: ./mvnw -B test
 
-      - name: Configure GPG Key
-        run: |
-          mkdir -p ~/.gnupg/
-          export GPG_TTY=$(tty)
-          printf "$GPG_SIGNING_KEY" | base64 --decode > ~/.gnupg/private.key
-          gpg --batch --import ~/.gnupg/private.key
-        env:
-          GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
-
       - name: maven-settings-xml-action
         uses: whelk-io/maven-settings-xml-action@v12
         with:
@@ -38,8 +29,14 @@ jobs:
 
       - name: Publish package
         run: |
+          mkdir -p ~/.gnupg/
           export GPG_TTY=$(tty)
+          printf "$GPG_SIGNING_KEY" | base64 --decode > ~/.gnupg/private.key
+          gpg --batch --import ~/.gnupg/private.key
           ./mvnw -B deploy -DskipTests
+        env:
+          GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
+          
 
 
         
