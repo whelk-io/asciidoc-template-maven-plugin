@@ -19,7 +19,7 @@ jobs:
           java-version: 1.11
 
       - name: Run Unit Tests
-        run: mvn -B test
+        run: ./mvnw -B test
 
       - name: Set up Maven Central Repository
         uses: actions/setup-java@v1
@@ -29,8 +29,14 @@ jobs:
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
 
+      - name: maven-settings-xml-action
+        uses: whelk-io/maven-settings-xml-action@v12
+        with:
+          servers: '[{ "id": "ossrh", "username": "${{ secrets.OSSRH_USERNAME }}", "password": "${{ secrets.OSSRH_PASSWORD }}" }]'
+          repositories: '[{ "id": "ossrh", "name": "ossrh", "url": "https://oss.sonatype.org/service/local/staging/deploy/maven2/", "releases": { "enabled": "true" }, "snapshots": { "enabled": "true" } }]'
+
       - name: Publish package
-        run: mvn -B deploy
-        env:
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+        run: ./mvnw -B deploy -s settings.xml
+
+
+        
