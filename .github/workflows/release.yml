@@ -26,8 +26,8 @@ jobs:
       with:
         java-version: 1.11
         server-id: ossrh
-        server-username: ${{ secrets.OSSRH_USERNAME }}
-        server-password: ${{ secrets.OSSRH_PASWORD }}
+        server-username: MAVEN_USERNAME
+        server-password: MAVEN_PASSWORD
 
     - name: Publish package
       run: ./mvnw -B deploy
