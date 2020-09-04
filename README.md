@@ -4,13 +4,13 @@ GitHub support for Asciidoctor on `README.adoc` does not include the `include::`
 
 [![CodeFactor](https://www.codefactor.io/repository/github/whelk-io/asciidoc-template-maven-plugin/badge/master)](https://www.codefactor.io/repository/github/whelk-io/asciidoc-template-maven-plugin/overview/master) ![deploy](https://github.com/whelk-io/asciidoc-template-maven-plugin/workflows/deploy/badge.svg?branch=master) 
 
-## Usage
+## Basic Usage
 
 **given template file**
 
 `src/docs/README.adoc`
 
-```
+```asciidoc
 = Some File
 
 include::otherFile.adoc[]
@@ -18,10 +18,10 @@ include::otherFile.adoc[]
 = Footer
 ```
 
-**and include file**
+**and file to merge into template**
 
 `src/docs/otherFile.adoc`
-```
+```asciidoc
 == Other File
 
 Other documentation
@@ -35,12 +35,62 @@ Other documentation
 
 `./README.adoc`
 
-```
+```asciidoc
 = Some File
 
 == Other File
 
 Other documentation
+
+= Footer
+```
+
+## Including Other Files
+
+**given template file**
+
+```asciidoc
+= Some File
+
+[source,java]
+----
+include::src/main/java/com/example/Demo.java[tag=snippet]
+----
+
+= Footer
+```
+
+**and a source file with segment tag**
+
+```Java
+package com.example;
+
+public class Demo {
+
+  // tag::snippet[]
+  public void run() {
+    log.info("running");
+  }
+  // end::snippet[]
+
+}
+````
+
+**when running asciidoc-template**
+
+`mvn asciidoc-template::build`
+
+**then output file contains**
+
+```asciidoc
+= Some File
+
+[source,java]
+----
+  public void run() {
+    log.info("running");
+  }
+----
 
 = Footer
 ```
