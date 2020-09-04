@@ -30,7 +30,6 @@ jobs:
       - name: Publish package
         run: |
           mkdir -p ~/.gnupg/
-          export GPG_TTY=$(tty)
           printf "$GPG_SIGNING_KEY" | base64 --decode > ~/.gnupg/private.key
           gpg --batch --import ~/.gnupg/private.key
           ./mvnw -B deploy -DskipTests
