@@ -6,11 +6,7 @@
 
 ## Publish to Maven Central
 
-`./mvnw clean`
-
-`./mvnw --settings settings.xml release:prepare -Pmaven-central`
-
-`./mvnw --settings settings.xml release:perform -Pmaven-central`
+`./mvnw clean deploy -s settings.xml -DskipTests`
 
 ## Settings.xml
 
@@ -22,23 +18,43 @@
     <servers>
         <server>
             <id>ossrh</id>
-            <username>{sonatype.username}</username>
-            <password>{sonatype.password}</password>
+            <username>{ossrh.username}</username>
+            <password>{ossrh.password}</password>
         </server>
     </servers>
 
+    <activeProfiles>
+        <activeProfile>github</activeProfile>
+    </activeProfiles>
+
     <profiles>
         <profile>
-            <id>ossrh</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <gpg.passphrase>{gpg.passphrase}</gpg.passphrase>
-            </properties>
+            <id>github</id>
+            <repositories>
+                <repository>
+                    <id>ossrh</id>
+                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
         </profile>
     </profiles>
 
 </settings>
 
 ````
+
+## Base64 GPG Private Key
+
+Find private key
+
+`gpg -K`
+
+Convert private key to base64
+
+`gpg --export-secret-keys {{key-id}} | base64 > private.key`
