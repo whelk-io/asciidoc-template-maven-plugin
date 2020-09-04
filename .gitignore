@@ -31,4 +31,4 @@ build/
 .vscode/
 
 ### Maven ###
-./settings.xml
+settings.xml
