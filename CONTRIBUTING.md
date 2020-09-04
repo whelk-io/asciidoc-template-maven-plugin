@@ -1,5 +1,11 @@
 # Contributing to io.whelk
 
+## Branching
+
+1) Fork the repository to your local GitHub account.
+
+2) Raise a pull request from your fork to origin/master.
+
 ## Install in Local .m2
 
 `./mvnw clean install`
@@ -48,13 +54,3 @@
 </settings>
 
 ````
-
-## Base64 GPG Private Key
-
-Find private key
-
-`gpg -K`
-
-Convert private key to base64
-
-`gpg --export-secret-keys {{key-id}} | base64 > private.key`
