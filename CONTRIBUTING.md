@@ -8,7 +8,7 @@
 
 `./mvnw clean`
 
-`./mvnw release:prepare -Pmaven-central`
+`./mvnw --settings settings.xml release:prepare -Pmaven-central`
 
 `./mvnw --settings settings.xml release:perform -Pmaven-central`
 
