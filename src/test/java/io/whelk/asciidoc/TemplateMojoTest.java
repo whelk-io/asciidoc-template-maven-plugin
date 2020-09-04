@@ -1,9 +1,9 @@
 package io.whelk.asciidoc;
 
 import io.whelk.asciidoc.TemplateMojo.PathAndOptions;
-
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,7 +15,7 @@ public class TemplateMojoTest {
     // end::exampleShort[]
 
     @Test
-    void testFilePathExtraction() {
+    void filePathExtraction() {
         TemplateMojo templateMojo = new TemplateMojo();
 
         assertThat(templateMojo.extractPathAndOptions("include::otherFile.adoc[]"))
@@ -32,6 +32,40 @@ public class TemplateMojoTest {
 
         assertThat(templateMojo.updateIncludeLine("include::src/test/java/io/whelk/asciidoc/TemplateMojoTest.java[tag=exampleShort]"))
                 .containsOnly("    String test = \"this is a small test\";");
+    }
+
+    @Test
+    void loadVars() {
+        TemplateMojo templateMojo = new TemplateMojo();
+        Map<String, String> vars = templateMojo.loadVars(List.of(
+                "My Doc",
+                "::",
+                "",
+                ":: 2",
+                ":myVar: 4",
+                ":noSpace:5",
+                ":baseDir: relativeDirectory",
+                "some content",
+                ":Here you can see a weirdly used colon",
+                ":dash-var: dv"
+        ));
+        Map<String, String> expected = Map.of(
+                "myVar", "4",
+                "noSpace", "5",
+                "baseDir", "relativeDirectory",
+                "dash-var", "dv");
+        assertThat(vars).containsExactlyInAnyOrderEntriesOf(expected);
+    }
+
+    @Test
+    void variableInPath() {
+        TemplateMojo templateMojo = new TemplateMojo();
+        Map<String, String> vars = templateMojo.loadVars(List.of(":rootDir: rootHere",
+                ":another: hereAlso"));
+        templateMojo.vars = vars;
+
+        assertThat(templateMojo.extractPathAndOptions("include::{rootDir}/{another}/intoThis[]").getPath())
+                .isEqualTo("rootHere/hereAlso/intoThis");
     }
 
 }

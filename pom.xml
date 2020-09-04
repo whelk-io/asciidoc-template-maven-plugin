@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.whelk.asciidoc</groupId>
     <artifactId>asciidoc-template-maven-plugin</artifactId>
-    <version>1.0.9-RELEASE-SNAPSHOT</version>
+    <version>1.0.9-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
     <name>Asciidoc Template Plugin</name>
@@ -46,6 +47,10 @@
         <maven-plugin-plugin.version>3.6.0</maven-plugin-plugin.version>
         <maven-site-plugin.version>3.9.1</maven-site-plugin.version>
         <maven-surfire-plugin.version>2.22.2</maven-surfire-plugin.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+        <nexus-staging-maven-plugin.version>1.6.7</nexus-staging-maven-plugin.version>
+        <maven-scm.version>1.11.2</maven-scm.version>
     </properties>
 
     <dependencies>
@@ -72,9 +77,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.7.0-RC1</version>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.17.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -82,11 +87,6 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>5.7.0-RC1</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>3.16.1</version>
         </dependency>
     </dependencies>
 
@@ -110,6 +110,12 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+            </plugin>
+        </plugins>
     </build>
 
     <profiles>
@@ -151,19 +157,19 @@
                             <dependency>
                                 <groupId>org.apache.maven.scm</groupId>
                                 <artifactId>maven-scm-provider-gitexe</artifactId>
-                                <version>1.11.2</version>
+                                <version>${maven-scm.version}</version>
                             </dependency>
                             <dependency>
                                 <groupId>org.apache.maven.scm</groupId>
                                 <artifactId>maven-scm-api</artifactId>
-                                <version>1.11.2</version>
+                                <version>${maven-scm.version}</version>
                             </dependency>
                         </dependencies>
                     </plugin>
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.7</version>
+                        <version>${nexus-staging-maven-plugin.version}</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>
@@ -174,7 +180,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>3.0.1</version>
+                        <version>${maven-source-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
@@ -187,7 +193,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
+                        <version>${maven-gpg-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
