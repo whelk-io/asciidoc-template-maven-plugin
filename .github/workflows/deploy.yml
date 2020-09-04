@@ -40,7 +40,7 @@ jobs:
         servers: '[{"id": "github", "username": "${{ secrets.BUILD_USERNAME }}", "password": "${{ secrets.BUILD_TOKEN }}"}]'
 
     - name: Deploy package
-      run: mvn -B deploy --file pom.xml
+      run: mvn -B deploy --file pom.xml -Pgithub
 
     - name: Checkout develop branch
       uses: actions/checkout@master
