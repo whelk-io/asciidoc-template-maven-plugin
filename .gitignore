@@ -32,3 +32,4 @@ build/
 
 ### Maven ###
 settings.xml
+release.properties
