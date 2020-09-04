@@ -21,6 +21,14 @@ jobs:
       - name: Run Unit Tests
         run: ./mvnw -B test
 
+      - name: Configure GPG Key
+        run: |
+          mkdir -p ~/.gnupg/
+          printf "$GPG_SIGNING_KEY" | base64 --decode > ~/.gnupg/private.key
+          gpg --import ~/.gnupg/private.key
+        env:
+          GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
+
       - name: maven-settings-xml-action
         uses: whelk-io/maven-settings-xml-action@v12
         with:
@@ -28,7 +36,7 @@ jobs:
           repositories: '[{ "id": "ossrh", "name": "ossrh", "url": "https://oss.sonatype.org/service/local/staging/deploy/maven2/", "releases": { "enabled": "true" }, "snapshots": { "enabled": "true" } }]'
 
       - name: Publish package
-        run: ./mvnw -B deploy
+        run: ./mvnw -B deploy -DskipTests
 
 
         
