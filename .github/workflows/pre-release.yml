@@ -19,4 +19,4 @@ jobs:
           java-version: 1.11
 
       - name: Run Unit Tests
-        run: ./mvnw -B test --file pom.xml
+        run: ./mvnw -B test
