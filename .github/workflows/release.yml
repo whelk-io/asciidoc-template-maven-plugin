@@ -37,7 +37,9 @@ jobs:
           repositories: '[{ "id": "ossrh", "name": "ossrh", "url": "https://oss.sonatype.org/service/local/staging/deploy/maven2/", "releases": { "enabled": "true" }, "snapshots": { "enabled": "true" } }]'
 
       - name: Publish package
-        run: ./mvnw -B deploy -DskipTests
+        run: |
+          export GPG_TTY=$(tty)
+          ./mvnw -B deploy -DskipTests
 
 
         
