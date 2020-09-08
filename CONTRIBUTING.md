@@ -4,7 +4,7 @@
 
 1) Fork the repository to your local GitHub account.
 
-2) Raise a pull request from your fork to origin/master.
+2) Raise a pull request from your fork to origin/develop.
 
 ## Install in Local .m2
 
