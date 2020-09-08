@@ -103,8 +103,11 @@ public class Demo {
 <plugin>
 	<groupId>io.whelk.asciidoc</groupId>
 	<artifactId>asciidoc-template-maven-plugin</artifactId>
+	<version>${asciidoc-template.version}</version>
 </plugin>
 ```
+
+> Check the available versions on [Maven Central](https://search.maven.org/artifact/io.whelk.asciidoc/asciidoc-template-maven-plugin)
 
 ### Full
 
