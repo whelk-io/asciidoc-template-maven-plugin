@@ -1,56 +1,36 @@
-# Contributing to io.whelk
+# Contributing to `whelk.io`
 
-## Branching
+## Getting Started 
 
-1) Fork the repository to your local GitHub account.
+1) Clone the repository to your local system.
 
-2) Raise a pull request from your fork to origin/develop.
+1) Build and install in your local Maven repository: `./mvnw clean install`
 
-## Install in Local .m2
+## Pull Requests
 
-`./mvnw clean install`
+1) Fork the repository to your personal GitHub account.
 
-## Publish to Maven Central
+1) Create a feature branch from `master`. Example: `feature/adding-widget`
 
-`./mvnw clean deploy -s settings.xml -DskipTests`
+1) Add unit-tests for new code.
 
-## Settings.xml
+1) Update [README.md](readme.md), if necessary.
 
-````xml
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                          https://maven.apache.org/xsd/settings-1.0.0.xsd">
+1) Raise a pull request from your feature branch to `develop`.
 
-    <servers>
-        <server>
-            <id>ossrh</id>
-            <username>{ossrh.username}</username>
-            <password>{ossrh.password}</password>
-        </server>
-    </servers>
+## Bug Reporting
 
-    <activeProfiles>
-        <activeProfile>github</activeProfile>
-    </activeProfiles>
+Report bugs using Github's [issues](https://github.com/whelk-io/asciidoc-template-maven-plugin/issues).
 
-    <profiles>
-        <profile>
-            <id>github</id>
-            <repositories>
-                <repository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-        </profile>
-    </profiles>
+**Write bug reports with detail, background, and sample code**
 
-</settings>
+- A quick summary and/or background
+- Steps to reproduce
+  - Be specific
+  - Give sample code if you can
+- What you expected would happen
+- What actually happens
 
-````
+## License
+
+By contributing, you agree that your contributions will be licensed under its MIT License.
