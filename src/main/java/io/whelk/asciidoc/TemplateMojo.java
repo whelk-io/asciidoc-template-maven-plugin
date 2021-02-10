@@ -26,9 +26,9 @@ import static java.util.stream.Collectors.toMap;
 @Mojo(name = "build", defaultPhase = LifecyclePhase.PACKAGE)
 public class TemplateMojo extends AbstractMojo {
 
-    public static final String TAG = "tag";
+    private static final String TAG = "tag";
 
-    public static final String TAG_END = "end";
+    private static final String TAG_END = "end";
 
     @Parameter(property = "templateDirectory")
     String templateDirectory;
