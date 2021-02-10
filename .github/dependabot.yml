@@ -5,4 +5,7 @@ updates:
   target-branch: develop
   schedule:
     interval: daily
+    timezone: America/Chicago
   open-pull-requests-limit: 10
+  assignees:
+  - zteater

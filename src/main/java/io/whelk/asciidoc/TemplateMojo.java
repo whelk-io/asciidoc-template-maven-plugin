@@ -26,9 +26,9 @@ import static java.util.stream.Collectors.toMap;
 @Mojo(name = "build", defaultPhase = LifecyclePhase.PACKAGE)
 public class TemplateMojo extends AbstractMojo {
 
-    public static final String TAG = "tag";
+    private static final String TAG = "tag";
 
-    public static final String TAG_END = "end";
+    private static final String TAG_END = "end";
 
     @Parameter(property = "templateDirectory")
     String templateDirectory;
@@ -151,7 +151,7 @@ public class TemplateMojo extends AbstractMojo {
         int pathStart = 9;
         Pattern pattern = Pattern.compile("\\[.*\\]$");
         Matcher matcher = pattern.matcher(line);
-        boolean found = matcher.find();
+        matcher.find();
         String[] allOptions = matcher.group().replaceAll("[\\[\\]]", "").split(",");
         Map<String, String> optionMap = Arrays.asList(allOptions).stream()
                 .filter(x -> x.trim().length() > 0)
