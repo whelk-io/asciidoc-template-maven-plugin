@@ -10,7 +10,7 @@
 
 1) Fork the repository to your personal GitHub account.
 
-1) Create a feature branch from `master`. Example: `feature/adding-widget`
+1) Create a feature branch from `main`. Example: `feature/adding-widget`
 
 1) Add unit-tests for new code.
 
