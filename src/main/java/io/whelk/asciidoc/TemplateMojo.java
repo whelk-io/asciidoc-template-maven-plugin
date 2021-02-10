@@ -151,7 +151,7 @@ public class TemplateMojo extends AbstractMojo {
         int pathStart = 9;
         Pattern pattern = Pattern.compile("\\[.*\\]$");
         Matcher matcher = pattern.matcher(line);
-        boolean found = matcher.find();
+        matcher.find();
         String[] allOptions = matcher.group().replaceAll("[\\[\\]]", "").split(",");
         Map<String, String> optionMap = Arrays.asList(allOptions).stream()
                 .filter(x -> x.trim().length() > 0)
