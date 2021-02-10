@@ -10,7 +10,7 @@
 
 1) Fork the repository to your personal GitHub account.
 
-1) Create a feature branch from `main`. Example: `feature/adding-widget`
+1) Create a feature branch from `develop`. Example: `feature/adding-widget`
 
 1) Add unit-tests for new code.
 
@@ -33,4 +33,4 @@ Report bugs using Github's [issues](https://github.com/whelk-io/asciidoc-templat
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under its MIT License.
+By contributing, you agree that your contributions will be licensed under its Apache 2.0 License.
