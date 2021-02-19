@@ -5,7 +5,7 @@
 
     <groupId>io.whelk.asciidoc</groupId>
     <artifactId>asciidoc-template-maven-plugin</artifactId>
-    <version>1.0.15</version>
+    <version>1.0.16</version>
     <packaging>maven-plugin</packaging>
 
     <name>Asciidoc Template Plugin</name>
