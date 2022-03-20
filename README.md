@@ -8,7 +8,7 @@ GitHub support for Asciidoctor on `README.adoc` does not include the `include::`
 
 **given template file**
 
-`src/docs/README.adoc`
+`src/docs/README-template.adoc`
 
 ```asciidoc
 = Some File
