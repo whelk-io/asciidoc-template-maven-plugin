@@ -47,13 +47,16 @@ public class TemplateMojoTest {
                 ":baseDir: relativeDirectory",
                 "some content",
                 ":Here you can see a weirdly used colon",
-                ":dash-var: dv"
+                ":dash-var: dv",
+                ":level-offset: +1",
+                ":level-offset: -1"
         ));
         Map<String, String> expected = Map.of(
                 "myVar", "4",
                 "noSpace", "5",
                 "baseDir", "relativeDirectory",
-                "dash-var", "dv");
+                "dash-var", "dv",
+                "level-offset", "-1");
         assertThat(vars).containsExactlyInAnyOrderEntriesOf(expected);
     }
 

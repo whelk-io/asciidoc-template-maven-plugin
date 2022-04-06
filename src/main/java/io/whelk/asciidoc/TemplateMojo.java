@@ -69,6 +69,7 @@ public class TemplateMojo extends AbstractMojo {
     Map<String, String> loadVars(List<String> strings) {
         String varRegex = "^:[\\w\\-]+:"; //includes dashes
         Pattern compile = Pattern.compile(varRegex);
+
         return strings.stream()
                 .map(x -> {
                     Matcher matcher = compile.matcher(x);
@@ -83,7 +84,8 @@ public class TemplateMojo extends AbstractMojo {
                     }
                 })
                 .filter(x -> x.size() == 2)
-                .collect(toMap(x -> x.get(0), x -> x.get(1)));
+                // when merging duplicates, last entry wins
+                .collect(toMap(x -> x.get(0), x -> x.get(1), (first, second) -> second));
     }
 
     private List<String> updateLines(List<String> lines) {
